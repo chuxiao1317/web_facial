@@ -1,0 +1,64 @@
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.thymeleaf.org">
+<script src="/plugins/jquery-3.2.1.min.js"></script>
+<!--<input id="searchInput" type="text" name="" placeholder="如：XX经费"/>-->
+<button id="searchButton" type="">搜索</button>
+<table>
+    <thead>
+    <tr>
+        <th id="userNicknameTh">我的刷脸记录</th>
+    </tr>
+    </thead>
+    <tbody id="createDatesTbody">
+    <tr th:each="createDate:${createDates}">
+        <td id="userNicknameTd">
+            <div class="compileOrganizationNameThDiv" th:text="${createDate}"></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="pagingDiv">
+    <ul id="pagingUl" style="margin:0px;" class="pagination">
+        <!--<li th:text="${pars}"></li>-->
+
+        <div class="pagingButtons" id="firstPageLi"><a>首页</a></div>
+        <div class="pagingButtons" id="previousPageLi" th:if="${createDates.hasPrevious()}"><a>上一页</a>
+        </div>
+        <!--总页数小于等于5-->
+        <div th:if="${(createDates.totalPages le 5) and (createDates.totalPages gt 0)}" th:remove="tag">
+            <div th:each="pg : ${#numbers.sequence(0, createDates.totalPages - 1)}" th:remove="tag">
+                <span th:if="${pg eq createDates.getNumber()}" th:remove="tag">
+                    <li class="pageNumLi"><span class="current_page line_height"
+                                                th:text="${pg+1}">${pageNumber}</span></li>
+                </span>
+                <span th:unless="${pg eq createDates.getNumber()}" th:remove="tag">
+                    <li><a th:text="${pg+1}"></a></li>
+                </span>
+            </div>
+        </div>
+        <!-- 总页数大于5时 -->
+        <div th:if="${createDates.totalPages gt 5}" th:remove="tag">
+            <li th:if="${createDates.number-2 ge 0}"><a th:text="${createDates.number-1}"></a></li>
+            <li th:if="${createDates.number-1 ge 0}"><a th:text="${createDates.number}"></a></li>
+            <li class="pageNumLi"><span class="current_page line_height" th:text="${createDates.number+1}"></span>
+            </li>
+            <li th:if="${createDates.number+1 lt createDates.totalPages}"><a
+                    th:text="${createDates.number+2}"></a></li>
+            <li th:if="${createDates.number+2 lt createDates.totalPages}"><a
+                    th:text="${createDates.number+3}"></a></li>
+        </div>
+
+
+        <div class="pagingButtons" id="nextPageLi" th:if="${createDates.hasNext()}"><a>下一页</a>
+        </div>
+        <div class="pagingButtons" id="lastPageLi"><a>尾页</a>
+        </div>
+        <div class="pagingButtons"><span
+                th:utext="'共'+${createDates.totalPages}+'页 / '+${createDates.totalElements}+' 条'"></span></div>
+    </ul>
+</div>
+<script th:inline="javascript">
+    var createDatesTotalPages = [[${createDates.totalPages}]];
+    var createDatesNowPageNum = [[${createDates.number}]];
+</script>

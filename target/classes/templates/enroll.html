@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>用户注册</title>
+    <script src="/plugins/jquery-3.2.1.min.js"></script>
+    <script src="/plugins/jquery.webcam.js"></script>
+    <script src="/plugins/jquery.form.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/enroll.css"/>
+</head>
+<body>
+
+<div id="rigisterHeader">
+    <div id="logoDiv">
+    </div>
+    秀B13人脸识别-注册账号
+</div>
+<div id="registerContent">
+    <div id="registerBackground">
+    </div>
+    <!--<form id="registerForm" action="/facial/register" method="post" accept-charset="utf-8">-->
+    <div class="registerDiv">
+        <div class="promptMessage">
+            账号:
+        </div>
+        <input id="usernameInput" name="username" class="inputMessage" maxlength="16">
+        </input>
+        <div id="userVerify" class="verifyDiv">
+        </div>
+    </div>
+    <div class="registerDiv">
+        <div class="promptMessage">
+            登录密码:
+        </div>
+        <input id="passwordInput" name="password" type="password" class="inputMessage" maxlength="16">
+        </input>
+        <div id="passwordVerify" class="verifyDiv">
+        </div>
+    </div>
+    <div class="registerDiv">
+        <div class="promptMessage">
+            重复密码:
+        </div>
+        <input id="repetitionPw" type="password" class="inputMessage" maxlength="16">
+        </input>
+        <div id="repetitionPwVerify" class="verifyDiv">
+        </div>
+    </div>
+    <div class="registerDiv">
+        <div class="promptMessage">
+            昵称:
+        </div>
+        <input id="nicknameInput" name="nickname" class="inputMessage" maxlength="16">
+        </input>
+        <div id="nicknameVerify" class="verifyDiv">
+        </div>
+    </div>
+    <div class="registerDiv">
+        <div class="promptMessage">
+            性别:
+        </div>
+        <div id="sexDiv" class="inputMessage">
+            <input id="man" type="radio" name="sex" value="男" checked="true"> 男
+            </input>
+            <input id="woman" type="radio" name="sex" value="女"> 女
+            </input>
+        </div>
+        <div class="verifyDiv">
+        </div>
+    </div>
+    <div id="registerLastDiv" class="registerDiv">
+        <div class="promptMessage">
+            班级:
+        </div>
+        <!--/*@thymesVar id="organizations" type=""*/-->
+        <select id="organization" name="organization" class="inputMessage">
+            <option th:each="organization:${organizations}" th:text="${organization}"></option>
+        </select>
+    </div>
+
+    <p>请预留一张正脸照片用于人脸识别！</p>
+    <p>拍照时，光线、角度、距离、表情等都会影响入库结果，故请尽量将您的头部对准摄像头，表情幅度不要过大，谢谢配合！</p>
+    <div id="container">
+        <div class="container">
+            <video id="video" width="400" height="300"></video>
+            <br>
+            <button id="camera" type="button" class="cameraButton" disabled>开摄像头</button>
+        </div>
+        <div class="container">
+            <canvas id="canvas" width="400" height="300"></canvas>
+            <br>
+            <button id="snap" type="button" class="cameraButton" disabled>拍照入库</button>
+            <div id="enrollResult">&nbsp;</div>
+        </div>
+    </div>
+    <!--<a href="" download="" id="saveButton">保存</a>-->
+    <!--<p>如果您已经成功拍照并保存，或者已有照片，请直接上传</p>-->
+    <!--<form action="/facial/enroll" id="registerForm" method="post" enctype="multipart/form-data">-->
+    <!--<p>-->
+    <!--<input type="file" id="file" name="files" value="选择文件"/>-->
+    <!--</form>-->
+    <!--</p>-->
+    <button id="registerButton" type="submit" disabled>注册</button>
+    <!--</form>-->
+    <br>
+    <a href="/facial">返回首页</a>
+    <script src="/js/enroll.js">
+    </script>
+</div>
+
+
+<!--<input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia();"/><br/>-->
+<!--<video height="120px" autoplay="autoplay"></video>-->
+<!--<hr/>-->
+<!--<input type="button" title="拍照" value="拍照" onclick="getPhoto();"/><br/>-->
+<!--<canvas id="canvas1" height="120px"></canvas>-->
+<!--<hr/>-->
+<!--<input type="button" title="视频" value="视频" onclick="getVedio();"/><br/>-->
+<!--<canvas id="canvas2" height="120px"></canvas>-->
+
+<!--<script type="text/javascript">-->
+<!--//<![CDATA[-->
+<!--var video = document.querySelector('video');-->
+<!--var audio, audioType;-->
+
+<!--var canvas1 = document.getElementById('canvas1');-->
+<!--var context1 = canvas1.getContext('2d');-->
+
+<!--var canvas2 = document.getElementById('canvas2');-->
+<!--var context2 = canvas2.getContext('2d');-->
+
+<!--navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;-->
+<!--window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;-->
+
+<!--var exArray = []; //存储设备源ID-->
+<!--MediaStreamTrack.getSources(function (sourceInfos) {-->
+<!--for (var i = 0; i != sourceInfos.length; ++i) {-->
+<!--var sourceInfo = sourceInfos[i];-->
+<!--//这里会遍历audio,video，所以要加以区分-->
+<!--if (sourceInfo.kind === 'video') {-->
+<!--exArray.push(sourceInfo.id);-->
+<!--}-->
+<!--}-->
+<!--});-->
+
+<!--function getMedia() {-->
+<!--if (navigator.getUserMedia) {-->
+<!--navigator.getUserMedia({-->
+<!--'video': {-->
+<!--'optional': [{-->
+<!--'sourceId': exArray[1] //0为前置摄像头，1为后置-->
+<!--}]-->
+<!--},-->
+<!--'audio': true-->
+<!--}, successFunc, errorFunc);    //success是获取成功的回调函数-->
+<!--}-->
+<!--else {-->
+<!--alert('Native device media streaming (getUserMedia) not supported in this browser.');-->
+<!--}-->
+<!--}-->
+
+<!--function successFunc(stream) {-->
+<!--//alert('Succeed to get media!');-->
+<!--if (video.mozSrcObject !== undefined) {-->
+<!--//Firefox中，video.mozSrcObject最初为null，而不是未定义的，我们可以靠这个来检测Firefox的支持-->
+<!--video.mozSrcObject = stream;-->
+<!--}-->
+<!--else {-->
+<!--video.src = window.URL && window.URL.createObjectURL(stream) || stream;-->
+<!--}-->
+
+<!--//video.play();-->
+<!--}-->
+
+<!--function errorFunc(e) {-->
+<!--alert('Error！' + e);-->
+<!--}-->
+
+<!--// vedio播放时触发，绘制vedio帧图像到canvas-->
+<!--//        video.addEventListener('play', function () {-->
+<!--//            drawVideoAtCanvas(video, context2);-->
+<!--//        }, false);-->
+
+<!--//拍照-->
+<!--function getPhoto() {-->
+<!--context1.drawImage(video, 0, 0, 90, 120); //将video对象内指定的区域捕捉绘制到画布上指定的区域，实现拍照。-->
+<!--}-->
+
+<!--//]]>-->
+
+
+<!--</script>-->
+
+
+<!--<div id="webcam"></div>-->
+<!--<button id="cameraButton">拍摄</button>-->
+
+<!--<script>-->
+<!--$(function () {-->
+<!--$("#cameraButton").click(function () {-->
+<!--$("#webcam").webcam({-->
+
+<!--width: 320,-->
+<!--height: 240,-->
+
+<!--mode: "callback",-->
+<!--//canvas没有实现jpeg编码器，因此文件要小得多-->
+<!--swffile: "/plugins/jscam_canvas_only.swf",-->
+
+<!--onTick: function (remain) {-->
+
+<!--if (0 == remain) {-->
+<!--$("#status").text("Cheese!");-->
+<!--} else {-->
+<!--$("#status").text(remain + " seconds remaining...");-->
+<!--}-->
+<!--},-->
+
+<!--onSave: function (data) {-->
+
+<!--var col = data.split(";");-->
+<!--// Work with the picture. Picture-data is encoded as an array of arrays... Not really nice, though =/-->
+<!--},-->
+
+<!--onCapture: function () {-->
+<!--webcam.save();-->
+
+<!--// Show a flash for example-->
+<!--},-->
+
+<!--debug: function (type, string) {-->
+<!--// Write debug information to console.log() or a div, ...-->
+<!--},-->
+
+<!--onLoad: function () {-->
+<!--// Page load-->
+<!--var cams = webcam.getCameraList();-->
+<!--for (var i in cams) {-->
+<!--$("#cams").append("<li>" + cams[i] + "</li>");-->
+<!--}-->
+<!--}-->
+<!--});-->
+<!--})-->
+<!--})-->
+<!--</script>-->
+</body>
+</html>

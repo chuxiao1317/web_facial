@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册成功</title>
+    <script src="/plugins/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h2>注册成功！</h2>
+<span><b id="count">5</b>秒后返回首页</span>
+<a href="/facial">直接返回首页</a>
+<script>
+    $(function () {
+        var count = 5;
+        setInterval(function () {
+            count--;
+            if (count <= 0) {
+                window.location.href = "/facial";
+            }
+            $("#count").html(count);
+        }, 1000);
+    });
+</script>
+</body>
+</html>

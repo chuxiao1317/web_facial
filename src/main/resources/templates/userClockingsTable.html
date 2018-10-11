@@ -1,0 +1,26 @@
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.thymeleaf.org">
+<script src="/plugins/jquery-3.2.1.min.js"></script>
+<!--<input id="searchInput" type="text" name="" placeholder="如：XX经费"/>-->
+<button id="searchButton" type="">搜索</button>
+<table>
+    <thead>
+    <tr>
+        <th id="userNicknameTh">
+            <div id="userNicknameThDiv">学生姓名</div>
+        </th>
+        <th>所属班级</th>
+        <th>刷脸时间</th>
+    </tr>
+    </thead>
+    <tbody id="userClockingsTbody">
+    <tr th:each="userClocking:${userClockings}">
+        <td id="userNicknameTd">
+            <div class="compileOrganizationNameThDiv" th:text="${userClocking[0]}"></div>
+        </td>
+        <td th:text="${userClocking[1]}"></td>
+        <td th:text="${userClocking[2]}"></td>
+    </tr>
+    </tbody>
+</table>

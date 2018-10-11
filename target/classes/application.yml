@@ -1,0 +1,26 @@
+server:
+  port: 8085
+  ssl:
+    key-store: classpath:214519458330946.pfx
+    key-store-password: 214519458330946
+    key-store-type: PKCS12
+
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /static
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.108.122.180:3306/facial?useUnicode = true$characterEncoding = utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

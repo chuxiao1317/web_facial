@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>管理员主页</title>
+    <script src="/plugins/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+</head>
+
+<body>
+<div id="bigDiv">
+    <div id="headDiv">
+        <div id="logoDiv">
+        </div>
+        秀B13人脸识别管理平台
+        <div id="logoutDiv">
+            退出
+        </div>
+        <!--<div id="helpDiv">-->
+        <!--帮助-->
+        <!--</div>-->
+    </div>
+    <div id="menuDiv">
+        <div id="organizationsMenu" class="menuDiv">
+            班级管理
+        </div>
+        <div id="clockingsMenu" class="menuDiv">
+            刷脸记录
+        </div>
+        <!--<div id="analizeMenu" class="menuDiv">-->
+        <!--收支统计-->
+        <!--</div>-->
+        <div id="imgDiv">
+        </div>
+        <div id="usernameDiv">
+            管理员
+        </div>
+    </div>
+    <div id="contentDiv">
+        <!--<div id="tableDiv"></div>-->
+        <!--<div id="pagingDiv">-->
+        <!--<div th:include="paging :: pager" th:remove="tag"></div>-->
+        <!--</div>-->
+    </div>
+</div>
+</div>
+<script src="/js/admin.js"></script>
+</body>
+</html>

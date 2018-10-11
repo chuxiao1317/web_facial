@@ -1,0 +1,84 @@
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.thymeleaf.org">
+<script src="/plugins/jquery-3.2.1.min.js"></script>
+<input id="searchInput" type="text" name="" placeholder="如：XX经费"/>
+<button id="searchButton" type="">搜索</button>
+<table>
+    <thead>
+    <tr>
+        <th id="organizationNameTh">
+            <div id="organizationNameThDiv">班级名称</div>
+            <button id="addOrganizationButton">添加</button>
+            <input id="addOrganizationInput" type="text" placeholder="请输入班级名称"/>
+            <button id="saveAddOrganizationBtn">保存</button>
+        </th>
+        <th>创建时间</th>
+        <th>修改时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="organizationsTbody">
+    <tr th:each="organization:${organizations}">
+        <td id="organizationNameTd">
+            <div class="compileOrganizationNameThDiv" th:text="${organization.name}"></div>
+            <input class="compileOrganizationInput" type="text" placeholder="请输入班级名称"/>
+            <button class="compileOrganizationBtn">保存</button>
+        </td>
+        <td th:text="${organization.createDate}"></td>
+        <td th:text="${organization.updateDate}"></td>
+        <td>
+            <div class="compileDiv">
+                编辑
+            </div>
+            <div class="deleteDiv">
+                删除
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="pagingDiv">
+    <ul id="pagingUl" style="margin:0px;" class="pagination">
+        <!--<li th:text="${pars}"></li>-->
+
+        <div class="pagingButtons" id="firstPageLi"><a>首页</a></div>
+        <div class="pagingButtons" id="previousPageLi" th:if="${organizations.hasPrevious()}"><a>上一页</a>
+        </div>
+        <!--总页数小于等于5-->
+        <div th:if="${(organizations.totalPages le 5) and (organizations.totalPages gt 0)}" th:remove="tag">
+            <div th:each="pg : ${#numbers.sequence(0, organizations.totalPages - 1)}" th:remove="tag">
+                <span th:if="${pg eq organizations.getNumber()}" th:remove="tag">
+                    <li class="pageNumLi"><span class="current_page line_height"
+                                                th:text="${pg+1}">${pageNumber}</span></li>
+                </span>
+                <span th:unless="${pg eq organizations.getNumber()}" th:remove="tag">
+                    <li><a th:text="${pg+1}"></a></li>
+                </span>
+            </div>
+        </div>
+        <!-- 总页数大于5时 -->
+        <div th:if="${organizations.totalPages gt 5}" th:remove="tag">
+            <li th:if="${organizations.number-2 ge 0}"><a th:text="${organizations.number-1}"></a></li>
+            <li th:if="${organizations.number-1 ge 0}"><a th:text="${organizations.number}"></a></li>
+            <li class="pageNumLi"><span class="current_page line_height" th:text="${organizations.number+1}"></span>
+            </li>
+            <li th:if="${organizations.number+1 lt organizations.totalPages}"><a
+                    th:text="${organizations.number+2}"></a></li>
+            <li th:if="${organizations.number+2 lt organizations.totalPages}"><a
+                    th:text="${organizations.number+3}"></a></li>
+        </div>
+
+
+        <div class="pagingButtons" id="nextPageLi" th:if="${organizations.hasNext()}"><a>下一页</a>
+        </div>
+        <div class="pagingButtons" id="lastPageLi"><a>尾页</a>
+        </div>
+        <div class="pagingButtons"><span
+                th:utext="'共'+${organizations.totalPages}+'页 / '+${organizations.totalElements}+' 条'"></span></div>
+    </ul>
+</div>
+<script th:inline="javascript">
+    var organizationsTotalPages = [[${organizations.totalPages}]];
+    var organizationsNowPageNum = [[${organizations.number}]];
+</script>

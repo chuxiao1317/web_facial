@@ -1,0 +1,141 @@
+/*用户登录页面*/
+
+* {
+    margin: 0;
+    padding: 0;
+    /*background: url("../images/loginBg.jpg");*/
+    /*background-size: 500px;*/
+}
+
+#backgroundDiv {
+    float: left;
+    width: 500px;
+    height: 300px;
+    /*background: url("../images/loginBg.jpg");*/
+    /*background-size: 500px;*/
+}
+
+#loginHeader {
+    background: teal;
+    width: 100%;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+}
+
+#logoDiv {
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px 5px 5px;
+    float: left;
+    background: url("../images/logo.png");
+    background-size: 50px;
+}
+
+#contentDiv {
+    /*background: aqua;*/
+    width: 960px;
+    height: 500px;
+    margin: 32px auto;
+    background: url("../images/loginBg.jpg");
+    background-size: 960px;
+}
+
+#loginDiv {
+    background: #ccc;
+    /*border: 1px solid #96a5b4;*/
+    float: right;
+    width: 334px;
+    height: 387px;
+    border-radius: 5px;
+}
+
+#logHeadDiv {
+    width: 334px;
+    height: 51px;
+    cursor: pointer;
+}
+
+#adminLoginDiv {
+    width: 167px;
+    height: 50px;
+    border-bottom: solid #96a5b4 1px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5em;
+    float: left;
+}
+
+#userLoginDiv {
+    width: 167px;
+    height: 50px;
+    border-bottom: solid #96a5b4 1px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5em;
+    float: right;
+    background: #3f89ec;
+    color: white;
+}
+
+#usernameError,
+#passwordError {
+    /*background: aqua;*/
+    margin: 0 auto;
+    width: 232px;
+    height: 30px;
+    color: red;
+    line-height: 30px;
+}
+
+.input {
+    width: 232px;
+    height: 38px;
+}
+
+.inputDiv {
+    width: 236px;
+    height: 42px;
+    margin: 5px auto;
+}
+
+#buttonDiv {
+    margin: 20px auto;
+    width: 236px;
+    height: 38px;
+}
+
+#loginButton {
+    width: 236px;
+    height: 38px;
+    background: #3f89ec;
+    color: white;
+    border: #3f89ec;
+    cursor: pointer;
+}
+
+#linkDiv {
+    /*background:aqua;*/
+    width: 334px;
+    height: 30px;
+    margin-top: 80px;
+}
+
+#registerLinkDiv {
+    /*background: aqua;*/
+    float: right;
+    width: 75px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 15px;
+    font-size: 0.7em;
+    color: #3f89ec;
+    cursor: pointer;
+}
+
+#registerLinkDiv:hover {
+    text-decoration: underline;
+}

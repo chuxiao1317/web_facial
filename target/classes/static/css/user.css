@@ -1,0 +1,219 @@
+/*公共属性*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#bigDiv {
+    width: 100%;
+}
+
+#headDiv {
+    width: 100%;
+    height: 60px;
+    background: teal;
+    float: left;
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
+    font-size: 1.2em;
+}
+
+#logoutDiv,
+#helpDiv {
+    width: 35px;
+    font-size: 0.7em;
+    float: right;
+    cursor: pointer;
+}
+
+#logoutDiv:hover,
+#helpDiv:hover {
+    font-size: 0.8em;
+    text-decoration: underline;
+}
+
+#logoDiv {
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px 5px 5px;
+    float: left;
+    background: url("../images/logo.png");
+    background-size: 50px;
+}
+
+#menuDiv {
+    padding-top: 10px;
+    width: 10%;
+    background: silver;
+    float: left;
+}
+
+.menuDiv {
+    border-bottom: #999 solid 1px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+#imgDiv {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background: url("../images/avatar.jpg");
+    background-size: 80px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#usernameDiv {
+    text-align: center;
+    cursor: pointer;
+}
+
+#usernameDiv:hover {
+    font-size: 1.1em;
+    color: blue;
+    text-decoration: underline;
+}
+
+#contentDiv {
+    width: 88%;
+    padding-top: 10px;
+    margin: 0 1% 0 1%;
+    float: right;
+}
+
+/*.menuDiv:hover {*/
+/*background: gray;*/
+/*}*/
+
+/*表单新增页面*/
+
+#id_form {
+    visibility: hidden;
+}
+
+#clockingsMenu {
+    background: gray;
+}
+
+#pagingUl {
+    font: 12px verdana, arial, sans-serif; /* 设置文字大小和字体样式 */
+}
+
+#pagingUl, #pagingUl li, .pagingButtons {
+    list-style: none; /* 将默认的列表符号去掉 */
+    padding: 5px; /* 将默认的内边距去掉 */
+    margin: 5px; /* 将默认的外边距去掉 */
+    color: teal;
+    cursor: pointer;
+}
+
+#pagingUl li, .pagingButtons {
+    float: left;
+    border: solid #999 1px;
+}
+
+#organizationNameThDiv, #addOrganizationButton, #addOrganizationInput, #saveAddOrganizationBtn {
+    float: left;
+}
+
+#addOrganizationButton, #saveAddOrganizationBtn {
+    width: 50px;
+}
+
+#addOrganizationInput, #saveAddOrganizationBtn {
+    display: none;
+}
+
+.compileOrganizationNameThDiv {
+    width: 100px;
+}
+
+.compileOrganizationNameThDiv, .compileOrganizationInput, .compileOrganizationBtn {
+    float: left;
+}
+
+.compileOrganizationInput, .compileOrganizationBtn {
+    display: none;
+}
+
+#payIncome_Select,
+#searchInput,
+#searchButton {
+    margin-top: 5px;
+    /*visibility: hidden;*/
+    display: none;
+}
+
+#titleDiv {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#bill_form {
+    text-align: center;
+}
+
+.userMessage {
+    width: 400px;
+}
+
+.warningDiv {
+    /*background:aqua;*/
+    width: 324px;
+    margin: 0 auto;
+    height: 20px;
+    color: red;
+    text-align: left;
+}
+
+#buttonDiv {
+    width: 280px;
+    margin: 20px auto;
+}
+
+button {
+    width: 80px;
+    margin-right: 10px;
+}
+
+/*表格查询页面*/
+
+#id_list {
+    display: none;
+}
+
+#payIncome_Select,
+#searchInput,
+#searchButton {
+    margin-top: 5px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: silver;
+}
+
+td,
+th {
+    height: 30px;
+    width: auto;
+    text-align: left;
+    border: solid #999 1px;
+}
+
+td div {
+    width: 2.5em;
+    margin: 0px;
+    float: left;
+}

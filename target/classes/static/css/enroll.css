@@ -1,0 +1,146 @@
+#webcam {
+    border: solid 1px red;
+    width: 320px;
+    height: 240px;
+}
+
+/*#container {*/
+/*width: 610px;*/
+/*height: 210px;*/
+/*margin: 0 auto;*/
+/*}*/
+
+.container {
+    float: left;
+}
+
+#video, #canvas {
+    border: solid silver 2px;
+    object-fit: fill;
+}
+
+.cameraButton {
+    /*margin: 0 auto;*/
+    cursor: pointer;
+    float:left;
+}
+
+#enrollResult {
+    /*color: red;*/
+    width: 200px;
+    float:left;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#rigisterHeader {
+    background: teal;
+    width: 100%;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+#logoDiv {
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px 5px 5px;
+    float: left;
+    background: url("../images/logo.png");
+    background-size: 50px;
+}
+
+#registerContent {
+    /*background: aqua;*/
+    width: 980px;
+    margin: auto;
+}
+
+#registerBackground {
+    float: right;
+    background: url("../images/registerBackground.png");
+    background-size: 260px;
+    width: 260px;
+    height: 150px;
+}
+
+.registerDiv {
+    /*background: yellow;*/
+    width: 720px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+#registerLastDiv {
+    margin-bottom: unset;
+}
+
+.promptMessage {
+    float: left;
+    height: 30px;
+    width: 75px;
+    line-height: 30px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.inputMessage {
+    float: left;
+    width: 328px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+.verifyDiv {
+    float: left;
+    /*background: red;*/
+    width: 293px;
+    height: 30px;
+}
+
+#sexDiv {
+    width: 332px;
+}
+
+#account_gender {
+    margin-top: 8px;
+}
+
+#account_career {
+    float: left;
+    width: 332px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#account_hobbies {
+    float: left;
+    width: 332px;
+    margin-right: 10px;
+}
+
+#interestDiv {
+    height: 78px;
+}
+
+#registerButton {
+    margin-top: 30px;
+    margin-left: 85px;
+    width: 332px;
+    height: 40px;
+    /*background: #3f89ec;*/
+    background: silver;
+    color: white;
+    border: silver;
+    cursor: pointer;
+}
+
+.verifyDiv {
+    /*color: red;*/
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>人脸识别</title>
+    <script src="/plugins/jquery-3.2.1.min.js"></script>
+    <script src="/plugins/jquery.webcam.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/recognition.css"/>
+</head>
+
+<body>
+<div id="recognitionHeader">
+    <div id="logoDiv">
+    </div>
+    秀B13-人脸识别
+</div>
+<p id="headerP">光线、角度、距离、表情等都会影响识别效率，拍照时请尽量将您的头部对准摄像头，表情幅度不要过大，谢谢配合！</p>
+<div id="container">
+    <div>
+        <video id="video" width="400" height="300"></video>
+        <canvas id="canvas" width="400" height="300"></canvas>
+    </div>
+    <div id="buttonDiv">
+        <button id="camera" type="button">开摄像头</button>
+        <button id="snap" type="button" disabled>拍照</button>
+        <button id="recognitionButton" disabled>识别</button>
+    </div>
+</div>
+<p id="recognitionResult">&nbsp;</p>
+<a href="/facial">返回首页</a>
+<script src="/js/recognition.js"></script>
+</body>
+
+</html>
